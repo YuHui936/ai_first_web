@@ -10,7 +10,9 @@
         </action>
         <action name="updatePerson" class="com.yh.action.PersonAction" method="update">
             <result name="input">/editPerson.jsp</result>
+            <!--如果表单验证错误，那么返回到编辑页面，并展示错误信息-->
             <result name="success" type="redirectAction">personAction</result>
+            <!--如果成功，表示更新成功，跳转到列表展示页面-->
         </action>
     </package>
 </struts>
