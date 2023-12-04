@@ -5,6 +5,7 @@ import com.yh.dao.PersonDao;
 import com.yh.model.Person;
 
 public class DefaultPersonService implements PersonService {
+
     PersonDao personDao;
 
     public DefaultPersonService() {
@@ -25,4 +26,13 @@ public class DefaultPersonService implements PersonService {
     public void updatePerson(Person updatedPerson) {
         personDao.updatePerson(updatedPerson);
     }
+
+    public PersonDao getPersonDao() {
+        return personDao;
+    }
+
+    public void setPersonDao(PersonDao personDao) {
+        this.personDao = personDao;
+    }
+
 }

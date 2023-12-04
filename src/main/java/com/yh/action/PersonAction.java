@@ -7,34 +7,15 @@ import com.yh.service.PersonService;
 
 public class PersonAction extends ActionSupport {
     private PersonService personService = new DefaultPersonService();
-    private Person[] persons;
-
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
-
     private Person person;
-
-    public Person[] getPersons() {
-        return persons;
-    }
-
-    public void setPersons(Person[] persons) {
-        this.persons = persons;
-    }
-
+    private Person[] persons;
+    private String personId; // Add a new property to store the personId from the request
 
     public String list() {
         // Assume personService is injected through Spring or other DI framework
         persons = personService.getAllPersons();
         return SUCCESS;
     }
-
-    private String personId; // Add a new property to store the personId from the request
 
     public String edit() {
         // Similar logic as before to retrieve person information
@@ -62,6 +43,22 @@ public class PersonAction extends ActionSupport {
             addActionError("Person information is null. Cannot update.");
             return ERROR;
         }
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public Person[] getPersons() {
+        return persons;
+    }
+
+    public void setPersons(Person[] persons) {
+        this.persons = persons;
     }
 
     // Add a getter and setter for personId
